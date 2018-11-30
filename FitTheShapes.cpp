@@ -6,6 +6,7 @@
 #include "Rectangle.h"
 #include "Triangle.h"
 #include "Circle.h"
+#include "Polygon.h"
 
 using namespace std;
 
@@ -665,6 +666,8 @@ int main() {
 	cout <<  "<rect x=\"0\" y=\"0\" width=\"" << awesome.getWidth()/2 <<
 			 "\" height=\"" << awesome.getHeight()/2 << "\" fill=\"blue\"/>\n" << endl;
 
+	Polygon a = Rectangle (10,10);
+
 
 	/*string svg;
 	ofstream myfile;
@@ -680,7 +683,7 @@ int main() {
 			"</svg>" << endl;
 	myfile.close();*/
 
-	askBigShape();
+	//askBigShape();
 	/*
 	 cout<< "Drawing svg to canvas width: "<< svg_w << " svg height: " << svg_h <<endl;
 
