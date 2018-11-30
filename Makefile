@@ -1,6 +1,6 @@
 PROJECT_ROOT = $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
-OBJS = FitTheShapes.o Rectangle.o
+OBJS = FitTheShapes.o Rectangle.o Triangle.o Circle.o
 CXXFLAGS += -std=c++11
 
 ifeq ($(BUILD_MODE),debug)
@@ -11,11 +11,15 @@ else
 	#$(error Build mode $(BUILD_MODE) not supported by this Makefile)
 endif
 
-all:	FitTheShapes
+all: FitTheShapes
 
 FitTheShapes:	$(OBJS)
 	$(CXX) -o $@ $^
-Rectangle:	$(OBJS)
+Rectangle:	$(OBJS) 
+	$(CXX) -o $@ $^
+Triangle:	$(OBJS) 
+	$(CXX) -o $@ $^
+Circle:	$(OBJS) 
 	$(CXX) -o $@ $^
 
 %.o:	$(PROJECT_ROOT)%.cpp
