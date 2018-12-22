@@ -32,6 +32,9 @@ int Circle::getPositionX(){
 int Circle::getPositionY(){
 	return p_y;
 }
+int Circle::getRadius(){
+	return radius;
+}
 
 void Circle::setPositionX(double positionX){
 	p_x = positionX;

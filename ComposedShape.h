@@ -9,6 +9,7 @@
 #define COMPOSEDSHAPE_H_
 #include "Rectangle.h"
 #include "Triangle.h"
+#include "Circle.h"
 #include <string>
 
 class ComposedShape {
@@ -25,8 +26,19 @@ private:
 	int calculateQuantity();
 	int getEmptyArea();
 	std::string createSvgString();
+	void convertCircleToPolygon(Circle);
 
 public:
+	ComposedShape(Rectangle, Rectangle);
+	/*ComposedShape(Rectangle, Triangle);
+	ComposedShape(Rectangle, Circle);
+	ComposedShape(Triangle, Triangle);
+	ComposedShape(Triangle, Rectangle);
+	ComposedShape(Triangle, Circle);
+	ComposedShape(Circle, Circle);
+	ComposedShape(Circle, Rectangle);
+	ComposedShape(Circle, Triangle);*/
+
 	void draw();
 };
 

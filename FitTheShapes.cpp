@@ -658,32 +658,10 @@ int main() {
 	Rectangle awesome(50, 50);
 	Triangle littleAwesome(6);
 	Circle circle(10);
-	cout << awesome.getArea() << endl;
-	cout << littleAwesome.getArea() << endl;
-	cout << circle.getArea() << endl;
-	cout <<  "<rect x=\"0\" y=\"0\" width=\"" << awesome.getWidth() <<
-			 "\" height=\"" << awesome.getHeight() << "\" fill=\"blue\"/>\n" << endl;
-	cout <<  "<rect x=\"0\" y=\"0\" width=\"" << awesome.getWidth()/2 <<
-			 "\" height=\"" << awesome.getHeight()/2 << "\" fill=\"blue\"/>\n" << endl;
 
 	Polygon a = Rectangle (10,10);
 
-
-	/*string svg;
-	ofstream myfile;
-	myfile.open("ehue.svg");
-	myfile << "<svg version=\"1.1\"\n"
-			"baseProfile=\"full\"\n"
-			"width= \"100\" height=\"150\"\n" <<
-			"xmlns=\"http://www.w3.org/2000/svg\">\n" <<
-			 "<rect x=\"0\" y=\"0\" width=\"" << awesome.getWidth() <<
-			 "\" height=\"" << awesome.getHeight() << "\" fill=\"blue\"/>\n" <<
-			 "<rect x=\"0\" y=\"0\" width=\"" << awesome.getWidth()/2 <<
-						 "\" height=\"" << awesome.getHeight()/2 << "\" fill=\"green\"/>\n" <<
-			"</svg>" << endl;
-	myfile.close();*/
-
-	//askBigShape();
+	askBigShape();
 	/*
 	 cout<< "Drawing svg to canvas width: "<< svg_w << " svg height: " << svg_h <<endl;
 

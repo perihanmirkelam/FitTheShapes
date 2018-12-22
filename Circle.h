@@ -19,6 +19,7 @@ private:
 public:
 	Circle(int);
 	double getArea();
+	int getRadius();
 	int getPositionX();
 	void setPositionX(double);
 	int getPositionY();

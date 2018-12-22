@@ -1,0 +1,70 @@
+<svg version="1.1"
+baseProfile="full"
+width= "191" height="164"
+xmlns="http://www.w3.org/2000/svg">
+<polygon points="0,164 190,164 95,0" class="triangle" fill="blue" /> 
+<polygon points="0,164 23,164 11,145" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="34,145 23,164 11,145" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="23,164 46,164 34,145" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="57,145 46,164 34,145" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="46,164 69,164 57,145" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="80,145 69,164 57,145" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="69,164 92,164 80,145" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="103,145 92,164 80,145" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="92,164 115,164 103,145" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="126,145 115,164 103,145" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="115,164 138,164 126,145" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="149,145 138,164 126,145" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="138,164 161,164 149,145" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="172,145 161,164 149,145" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="161,164 184,164 172,145" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="11,145 34,145 22,126" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="45,126 34,145 22,126" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="34,145 57,145 45,126" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="68,126 57,145 45,126" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="57,145 80,145 68,126" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="91,126 80,145 68,126" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="80,145 103,145 91,126" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="114,126 103,145 91,126" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="103,145 126,145 114,126" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="137,126 126,145 114,126" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="126,145 149,145 137,126" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="160,126 149,145 137,126" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="149,145 172,145 160,126" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="22,126 45,126 33,107" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="56,107 45,126 33,107" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="45,126 68,126 56,107" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="79,107 68,126 56,107" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="68,126 91,126 79,107" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="102,107 91,126 79,107" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="91,126 114,126 102,107" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="125,107 114,126 102,107" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="114,126 137,126 125,107" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="148,107 137,126 125,107" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="137,126 160,126 148,107" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="33,107 56,107 44,88" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="67,88 56,107 44,88" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="56,107 79,107 67,88" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="90,88 79,107 67,88" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="79,107 102,107 90,88" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="113,88 102,107 90,88" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="102,107 125,107 113,88" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="136,88 125,107 113,88" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="125,107 148,107 136,88" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="44,88 67,88 55,69" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="78,69 67,88 55,69" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="67,88 90,88 78,69" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="101,69 90,88 78,69" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="90,88 113,88 101,69" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="124,69 113,88 101,69" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="113,88 136,88 124,69" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="55,69 78,69 66,50" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="89,50 78,69 66,50" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="78,69 101,69 89,50" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="112,50 101,69 89,50" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="101,69 124,69 112,50" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="66,50 89,50 77,31" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="100,31 89,50 77,31" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="89,50 112,50 100,31" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<polygon points="77,31 100,31 88,12" class="triangle" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+</svg>

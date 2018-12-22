@@ -1,0 +1,27 @@
+<svg version="1.1"
+baseProfile="full"
+width= "200" height="173"
+xmlns="http://www.w3.org/2000/svg">
+<polygon points="0,173 200,173 100,0" class="triangle" fill="blue" /> 
+<circle cx="100" cy="26.000000" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="87" cy="49.620835" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="113" cy="49.620835" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="74" cy="73.241670" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="100" cy="73.241670" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="126" cy="73.241670" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="61" cy="96.862505" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="87" cy="96.862505" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="113" cy="96.862505" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="139" cy="96.862505" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="48" cy="120.483340" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="74" cy="120.483340" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="100" cy="120.483340" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="126" cy="120.483340" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="152" cy="120.483340" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="35" cy="144.104174" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="61" cy="144.104174" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="87" cy="144.104174" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="113" cy="144.104174" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="139" cy="144.104174" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+<circle cx="165" cy="144.104174" r=" 13" fill="green" style="stroke-width:1;stroke:rgb(10,10,10)" />
+</svg>
