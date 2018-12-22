@@ -11,6 +11,9 @@
 #include "Triangle.h"
 #include "Circle.h"
 #include <string>
+#include <vector>
+#include <iostream>
+
 
 class ComposedShape {
 private:
@@ -18,26 +21,30 @@ private:
 	int type;
 	int quantity;
 	int emptyArea;
-	double svgWidth;
-	double svgHeight;
+	int svgWidth;
+	int svgHeight;
 	std::string svgString;
-	void calculateSvgSize();
+	std::vector<std::string> smallShapes;
+	std::string bigShapeSvg;
+	void setSvgSizes(int, int);
 	void calculateEmptyArea();
 	int calculateQuantity();
 	int getEmptyArea();
 	std::string createSvgString();
 	void convertCircleToPolygon(Circle);
+	void optimalFit(Rectangle, Rectangle);
+	void optimalFit(Rectangle, Triangle);
+	void optimalFit(Rectangle, Circle);
+	void optimalFit(Triangle, Triangle);
+	void optimalFit(Triangle, Rectangle);
+	void optimalFit(Triangle, Circle);
+	void optimalFit(Circle, Circle);
+	void optimalFit(Circle, Rectangle);
+	void optimalFit(Circle, Triangle);
+
 
 public:
-	ComposedShape(Rectangle, Rectangle);
-	/*ComposedShape(Rectangle, Triangle);
-	ComposedShape(Rectangle, Circle);
-	ComposedShape(Triangle, Triangle);
-	ComposedShape(Triangle, Rectangle);
-	ComposedShape(Triangle, Circle);
-	ComposedShape(Circle, Circle);
-	ComposedShape(Circle, Rectangle);
-	ComposedShape(Circle, Triangle);*/
+	ComposedShape(Triangle bigOne, Triangle smallOne);
 
 	void draw();
 };

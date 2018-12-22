@@ -7,6 +7,7 @@
 #include "Triangle.h"
 #include "Circle.h"
 #include "Polygon.h"
+#include "ComposedShape.h"
 
 using namespace std;
 
@@ -81,7 +82,7 @@ void drawSvg(string smallShapes) {
 	myfile.open("output.svg");
 	myfile << "<svg version=\"1.1\"\n"
 			"baseProfile=\"full\"\n"
-			"width= \"" << svg_w << "\" height=\"" << svg_h << "\"\n"
+			"width= \"" << svg_w << "\" height=\"" << svg << "\"\n"
 			"xmlns=\"http://www.w3.org/2000/svg\">\n" << bigShapeSvg
 			<< smallShapes <<
 
@@ -92,61 +93,7 @@ void drawSvg(string smallShapes) {
 	myfile.close();
 }
 
-string trianglesInTriangle() {
-	string svgPart;
-	int height = (int) (triangle_e * sqrt(3)) / 2;
-	int halfEdge = triangle_e / 2;
-	cout << "triangle height: " << height << endl;
-	int column = svg_w / triangle_e;
-	int row = svg_h / height;
-	quantityOfSmallShapes += column * row;
-	svg_w += 1;
-	int tempWidth = svg_w - triangle_e;
 
-	for (int i = 0; i < row; i++) {
-		for (int j = 0; j < column; j++) {
-			svgPart +=
-					"<polygon points=\""
-							+ to_string((i * halfEdge) + (j * triangle_e)) + ","
-							+ to_string(svg_h - (i * height))
-							+ " " //x1 y1
-							+ to_string(
-									(i * halfEdge) + triangle_e
-											+ (j * triangle_e)) + ","
-							+ to_string(svg_h - (i * height))
-							+ " " //x2 y2
-							+ to_string(
-									(i * halfEdge) + halfEdge
-											+ (j * triangle_e)) + ","
-							+ to_string(svg_h - height - (i * height)) //x3 y3
-							+ "\" class=\"triangle\" fill=\"green\" style=\"stroke-width:1;stroke:rgb(10,10,10)\" />\n";
-
-			if (((j + 1) * triangle_e) <= tempWidth + 1) {
-				svgPart +=
-						"<polygon points=\""
-								+ to_string(
-										(i * halfEdge) + halfEdge
-												+ ((j + 1) * triangle_e)) + ","
-								+ to_string(svg_h - height - (i * height))
-								+ " " //x1 y1
-								+ to_string(
-										(i * halfEdge) + triangle_e
-												+ (j * triangle_e)) + ","
-								+ to_string(svg_h - (i * height))
-								+ " " //x2 y2
-								+ to_string(
-										(i * halfEdge) + halfEdge
-												+ (j * triangle_e)) + ","
-								+ to_string(svg_h - height - (i * height)) //x3 y3
-								+ "\" class=\"triangle\" fill=\"green\" style=\"stroke-width:1;stroke:rgb(10,10,10)\" />\n";
-				quantityOfSmallShapes++;
-			}
-		}
-		tempWidth = tempWidth - triangle_e;
-		column = (tempWidth + (triangle_e)) / triangle_e;
-	}
-	return svgPart;
-}
 string circlesInTriangle() {
 	string svgPart;
 	int diameter = 2 * circle_r;
@@ -399,7 +346,6 @@ void drawSmallShapes(Shape bigShapeType, Shape smallShapeType) {
 			smallShapes = circlesInTriangle();
 			break;
 		case Shape::T:
-			smallShapes = trianglesInTriangle();
 			break;
 		}
 		break;
@@ -471,56 +417,6 @@ void drawBigShape() {
 	}
 }
 
-void calculateSvgSize() {
-	switch (bigShapeType) {
-	case Shape::R:
-		svg_w = bigRectangle_w;
-		svg_h = bigRectangle_h;
-		break;
-	case Shape::C:
-		svg_w = bigCircle_r * 2;
-		svg_h = bigCircle_r * 2;
-		break;
-	case Shape::T:
-		svg_w = bigTriangle_e;
-		svg_h = (int) (bigTriangle_e / 2) * (sqrt(3));
-		break;
-	}
-	drawBigShape();
-}
-
-//ask for width and height of rectangle
-void askRectangleSize(bool isBigShape) {
-	int width;
-	int height;
-	cout << "Enter width of rectangle:\n";
-	cin >> width;
-	while (cin.fail() || width < 1) {
-		cin.clear();
-		cin.ignore(1000, '\n');
-		cout
-				<< "Bad value! Please enter a positive integer value for width of rectangle: "
-				<< endl;
-		cin >> width;
-	}
-	cout << "Enter height of rectangle:\n";
-	cin >> height;
-	while (cin.fail() || height < 1) {
-		cin.clear();
-		cin.ignore(1000, '\n');
-		cout
-				<< "Bad value! Please enter a positive integer value for height of rectangle: "
-				<< endl;
-		cin >> height;
-	}
-	if (isBigShape) {
-		bigRectangle_w = width;
-		bigRectangle_h = height;
-	} else {
-		rectangle_w = width;
-		rectangle_h = height;
-	}
-}
 
 //ask for radius length of circle
 void askCircleSize(bool isBigShape) {
@@ -583,6 +479,7 @@ void assignShapeType(bool isBigShape, string input) {
 
 // ask what is the type of small shapes and their sizes
 void askSmallShapes() {
+	//auto var();
 	string smallShape = "";
 	cout
 			<< "Please enter the type of shape include your container shape (R, C, T):\n";
@@ -591,7 +488,6 @@ void askSmallShapes() {
 
 	switch (smallShapesType) {
 	case Shape::R:
-		askRectangleSize(false);
 		if (calculateRectangleArea(false) > bigShapeArea) {
 			cout << "This area must be smaller than first one!" << endl;
 			cout << "calculateRectangleArea(false): "
@@ -613,17 +509,11 @@ void askSmallShapes() {
 		}
 		break;
 	case Shape::T:
-		askTriangleSize(false);
-		calculateTriangleArea(false);
-		if (calculateTriangleArea(false) > bigShapeArea) {
-			cout << "This area must be smaller than first one!" << endl;
-			triangle_e = 0;
-			triangleArea = 0.0;
-			askSmallShapes();
-		}
+
+
 		break;
 	}
-	drawSmallShapes(bigShapeType, smallShapesType);
+	//drawSmallShapes(bigShapeType, smallShapesType);
 }
 
 // ask what is the type of the big shape and its sizes
@@ -636,7 +526,6 @@ void askBigShape() {
 
 	switch (bigShapeType) {
 	case Shape::R:
-		askRectangleSize(true);
 		area = calculateRectangleArea(true);
 		break;
 	case Shape::C:
@@ -644,24 +533,32 @@ void askBigShape() {
 		area = calculateCircleArea(true);
 		break;
 	case Shape::T:
-		askTriangleSize(true);
-		area = calculateTriangleArea(true);
+		Triangle big();
+	//	askSmallShapes();
+		//
 		break;
 	}
-	bigShapeArea = area;
-	calculateSvgSize();
-	askSmallShapes();
 }
 
 int main() {
 
-	Rectangle awesome(50, 50);
-	Triangle littleAwesome(6);
-	Circle circle(10);
+	//Rectangle awesome(50, 50);
+	//Triangle littleAwesome(6);
+	//Circle circle(10);
 
-	Polygon a = Rectangle (10,10);
+	//Polygon a = Rectangle (10,10);
 
-	askBigShape();
+	Triangle tbig(300);
+	Triangle tsmall(100);
+	cout<< tsmall.edge;
+
+	ComposedShape a(tbig, tsmall);
+
+	a.draw();
+
+
+
+	//askBigShape();
 	/*
 	 cout<< "Drawing svg to canvas width: "<< svg_w << " svg height: " << svg_h <<endl;
 

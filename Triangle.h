@@ -11,14 +11,15 @@
 class Triangle {
 private:
 	double area;
-	int edge;
-	double height;
+
 	bool rotated;
 	double p_x;
 	double p_y;
 	void calcArea();
 
 public:
+	int edge;
+    double height;
 	Triangle(int);
 	double getArea();
 	void setRotated(bool);

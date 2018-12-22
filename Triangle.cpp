@@ -9,13 +9,13 @@
 
 // "<polygon points=\"10,10 20,80 80,80\" class=\"triangle\" />"
 
-double squareRoot3 = 1.732050807568877;
+const double squareRoot3 = 1.732050807568877;
 
-Triangle::Triangle(int edge) {
+Triangle::Triangle(int edges) {
 	this->p_x = 0.0;
 	this->p_y = 0.0;
 	this->area = 0.0;
-	this->edge = edge;
+	this->edge = edges;
 	this->rotated = false;
 	this->height = (edge * squareRoot3) / 2;
 	calcArea();
