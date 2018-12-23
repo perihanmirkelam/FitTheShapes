@@ -56,11 +56,11 @@ int triangle_y3=0;
 int triangle_e=0;
 
 //shape types
-enum class Shape { R, C, T };
+enum class ShapeEnum { R, C, T };
 
 //desired shape types
-Shape bigShapeType;
-Shape smallShapesType;
+ShapeEnum bigShapeType;
+ShapeEnum smallShapesType;
 
 string bigShapeSvg;
 int quantityOfSmallShapes;
@@ -85,39 +85,7 @@ void drawSvg(string smallShapes){
 	myfile.close();
 }
 
-string trianglesInTriangle(){
-	string svgPart;
-	int height = (int) (triangle_e * sqrt(3)) / 2;
-	int halfEdge = triangle_e/2;
-	cout << "triangle height: " << height << endl;
-	int column = svg_w / triangle_e;
-	int row = svg_h / height;
-	quantityOfSmallShapes += column*row;
-	svg_w+=1;
-	int tempWidth = svg_w - triangle_e;
 
-	for (int i=0; i<row; i++){
-			for(int j=0; j<column; j++){
-				 svgPart += "<polygon points=\""
-						 + to_string((i*halfEdge) + (j*triangle_e)) + "," + to_string(svg_h - (i*height)) + " " //x1 y1
-						 + to_string((i*halfEdge) + triangle_e + (j*triangle_e)) + "," + to_string(svg_h- (i*height)) + " " //x2 y2
-						 + to_string((i*halfEdge) + halfEdge + (j*triangle_e)) + "," + to_string(svg_h - height- (i*height)) //x3 y3
-						 +"\" class=\"triangle\" fill=\"green\" style=\"stroke-width:1;stroke:rgb(10,10,10)\" />\n";
-
-				 if(((j+1)*triangle_e) <= tempWidth + 1){
-					 svgPart += "<polygon points=\""
-					+ to_string((i*halfEdge) + halfEdge + ((j+1)*triangle_e)) + "," + to_string(svg_h - height - (i*height)) + " " //x1 y1
-					+ to_string((i*halfEdge) + triangle_e + (j*triangle_e)) + "," + to_string(svg_h- (i*height)) + " " //x2 y2
-					+ to_string((i*halfEdge) + halfEdge + (j*triangle_e)) + "," + to_string(svg_h - height- (i*height)) //x3 y3
-					+"\" class=\"triangle\" fill=\"green\" style=\"stroke-width:1;stroke:rgb(10,10,10)\" />\n";
-					 quantityOfSmallShapes++;
-					 }
-			}
-			tempWidth = tempWidth - triangle_e;
-			column = (tempWidth + (triangle_e)) / triangle_e;
-		}
-	return svgPart;
-}
 string circlesInTriangle(){
 	string svgPart;
 	int diameter = 2*circle_r;
@@ -282,44 +250,44 @@ string rectanglesInRectangle(){
 	return svgPart;
 }
 
-void drawSmallShapes(Shape bigShapeType, Shape smallShapeType){
+void drawSmallShapes(ShapeEnum bigShapeType, ShapeEnum smallShapeType){
 	string smallShapes ="";
 	switch(bigShapeType){
-		case Shape::R:
+		case ShapeEnum::R:
 			switch(smallShapeType){
-				case Shape::R:
+				case ShapeEnum::R:
 					smallShapes = rectanglesInRectangle();
 					break;
-				case Shape::C:
+				case ShapeEnum::C:
 					smallShapes = circlesInRectangle();
 					break;
-				case Shape::T:
+				case ShapeEnum::T:
 					smallShapes = trianglesInRectangle();
 					break;
 			}
 			break;
-		case Shape::C:
+		case ShapeEnum::C:
 			switch(smallShapeType){
-				case Shape::R:
+				case ShapeEnum::R:
 					smallShapes = rectanglesInCircle();
 					break;
-				case Shape::C:
+				case ShapeEnum::C:
 					smallShapes = circlesInCircle();
 					break;
-				case Shape::T:
+				case ShapeEnum::T:
 					smallShapes = trianglesInCircle();
 					break;
 			}
 			break;
-		case Shape::T:
+		case ShapeEnum::T:
 			switch(smallShapeType){
-				case Shape::R:
+				case ShapeEnum::R:
 					smallShapes = rectanglesInTriangle();
 					break;
-				case Shape::C:
+				case ShapeEnum::C:
 					smallShapes = circlesInTriangle();
 					break;
-				case Shape::T:
+				case ShapeEnum::T:
 					smallShapes = trianglesInTriangle();
 					break;
 			}
@@ -365,17 +333,17 @@ double calculateTriangleArea(bool isBigShape){
 
 void drawBigShape(){
 	switch(bigShapeType){
-	case Shape::R :
+	case ShapeEnum::R :
 	    bigShapeSvg = "<rect x=\"0\" y=\"0\" width=\"" + to_string(svg_w)
 	    + "\" height=\"" + to_string(svg_h) + "\" fill=\"blue\"/>\n";
 		break;
-	case Shape::C :
+	case ShapeEnum::C :
 		bigCircle_x = svg_w/2;
 		bigCircle_y = svg_h/2;
 		bigShapeSvg = "<circle cx=\"" + to_string(bigCircle_x) + "\" cy=\"" + to_string(bigCircle_y)
 				+ "\" r=\"" + to_string(bigCircle_r) + "\" fill=\"blue\" />\n";
 		break;
-	case Shape::T :
+	case ShapeEnum::T :
 		bigTriangle_x1=0;
 		bigTriangle_y1=svg_h;
 		bigTriangle_x2=svg_w;
@@ -392,15 +360,15 @@ void drawBigShape(){
 
 void calculateSvgSize(){
 	switch(bigShapeType){
-	case Shape::R :
+	case ShapeEnum::R :
 		svg_w = bigRectangle_w;
 		svg_h = bigRectangle_h;
 		break;
-	case Shape::C :
+	case ShapeEnum::C :
 		svg_w = bigCircle_r * 2;
 		svg_h = bigCircle_r * 2;
 		break;
-	case Shape::T :
+	case ShapeEnum::T :
 		svg_w = bigTriangle_e;
 		svg_h = (int) (bigTriangle_e/2)*(sqrt(3));
 		break;
@@ -473,13 +441,13 @@ void askTriangleSize(bool isBigShape){
 	}
 }
 void assignShapeType(bool isBigShape, string input){
-	Shape shape;
+	ShapeEnum shape;
 	if(input == "R" || input == "r"){
-		shape = Shape::R;
+		shape = ShapeEnum::R;
 	} else if(input == "C" || input == "c"){
-		shape = Shape::C;
+		shape = ShapeEnum::C;
 	} else if(input == "T" || input == "t"){
-		shape = Shape::T;
+		shape = ShapeEnum::T;
 	} else {
 		cout << "Incorrect input! Try again..." << endl;
 		isBigShape ? askBigShape() : askSmallShapes();
@@ -500,7 +468,7 @@ void askSmallShapes(){
 	assignShapeType(false, smallShape);
 
 	switch(smallShapesType){
-	case Shape::R :
+	case ShapeEnum::R :
 		askRectangleSize(false);
 		if(calculateRectangleArea(false) > bigShapeArea){
 		cout << "This area must be smaller than first one!" << endl;
@@ -511,7 +479,7 @@ void askSmallShapes(){
 		askSmallShapes();
 		}
 	break;
-	case Shape::C :
+	case ShapeEnum::C :
 		askCircleSize(false);
 		if(calculateCircleArea(false) > bigShapeArea){
 			cout << "This area must be smaller than first one!" << endl;
@@ -520,7 +488,7 @@ void askSmallShapes(){
 			askSmallShapes();
 		}
 	break;
-	case Shape::T :
+	case ShapeEnum::T :
 		askTriangleSize(false);
 		calculateTriangleArea(false);
 		if(calculateTriangleArea(false) > bigShapeArea){
@@ -543,15 +511,15 @@ void askSmallShapes(){
 		double area = 0.0;
 
 		switch(bigShapeType){
-				case Shape::R :
+				case ShapeEnum::R :
 					askRectangleSize(true);
 					area = calculateRectangleArea(true);
 				break;
-				case Shape::C :
+				case ShapeEnum::C :
 					askCircleSize(true);
 					area = calculateCircleArea(true);
 				break;
-				case Shape::T :
+				case ShapeEnum::T :
 					askTriangleSize(true);
 					area = calculateTriangleArea(true);
 				break;

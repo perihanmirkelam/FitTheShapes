@@ -24,8 +24,12 @@ private:
 	int svgWidth;
 	int svgHeight;
 	std::string svgString;
-	std::vector<std::string> smallShapes;
-	std::string bigShapeSvg;
+	Triangle *bigShapeTriangle;
+	Rectangle *bigShapeRectangle;
+	Circle *bigShapeCircle;
+	std::vector<Triangle> smallTriangleShapes;
+	std::vector<Rectangle> smallRectangleShapes;
+	std::vector<Circle> smallCircleShapes;
 	void setSvgSizes(int, int);
 	void calculateEmptyArea();
 	int calculateQuantity();
@@ -45,8 +49,10 @@ private:
 
 public:
 	ComposedShape(Triangle bigOne, Triangle smallOne);
+	ComposedShape(Rectangle bigOne, Rectangle smallOne);
 
-	void draw();
+	void drawRR();
+	void drawTT();
 };
 
 #endif /* COMPOSEDSHAPE_H_ */

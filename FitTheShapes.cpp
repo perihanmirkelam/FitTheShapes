@@ -60,13 +60,13 @@ int triangle_y3 = 0;
 int triangle_e = 0;
 
 //shape types
-enum class Shape {
+enum class ShapeEnum {
 	R, C, T
 };
 
 //desired shape types
-Shape bigShapeType;
-Shape smallShapesType;
+ShapeEnum bigShapeType;
+ShapeEnum smallShapesType;
 
 string bigShapeSvg;
 int quantityOfSmallShapes;
@@ -308,44 +308,44 @@ string rectanglesInRectangle() {
 	return svgPart;
 }
 
-void drawSmallShapes(Shape bigShapeType, Shape smallShapeType) {
+void drawSmallShapes(ShapeEnum bigShapeType, ShapeEnum smallShapeType) {
 	string smallShapes = "";
 	switch (bigShapeType) {
-	case Shape::R:
+	case ShapeEnum::R:
 		switch (smallShapeType) {
-		case Shape::R:
+		case ShapeEnum::R:
 			smallShapes = rectanglesInRectangle();
 			break;
-		case Shape::C:
+		case ShapeEnum::C:
 			smallShapes = circlesInRectangle();
 			break;
-		case Shape::T:
+		case ShapeEnum::T:
 			smallShapes = trianglesInRectangle();
 			break;
 		}
 		break;
-	case Shape::C:
+	case ShapeEnum::C:
 		switch (smallShapeType) {
-		case Shape::R:
+		case ShapeEnum::R:
 			smallShapes = rectanglesInCircle();
 			break;
-		case Shape::C:
+		case ShapeEnum::C:
 			smallShapes = circlesInCircle();
 			break;
-		case Shape::T:
+		case ShapeEnum::T:
 			smallShapes = trianglesInCircle();
 			break;
 		}
 		break;
-	case Shape::T:
+	case ShapeEnum::T:
 		switch (smallShapeType) {
-		case Shape::R:
+		case ShapeEnum::R:
 			smallShapes = rectanglesInTriangle();
 			break;
-		case Shape::C:
+		case ShapeEnum::C:
 			smallShapes = circlesInTriangle();
 			break;
-		case Shape::T:
+		case ShapeEnum::T:
 			break;
 		}
 		break;
@@ -390,18 +390,18 @@ double calculateTriangleArea(bool isBigShape) {
 
 void drawBigShape() {
 	switch (bigShapeType) {
-	case Shape::R:
+	case ShapeEnum::R:
 		bigShapeSvg = "<rect x=\"0\" y=\"0\" width=\"" + to_string(svg_w)
 				+ "\" height=\"" + to_string(svg_h) + "\" fill=\"blue\"/>\n";
 		break;
-	case Shape::C:
+	case ShapeEnum::C:
 		bigCircle_x = svg_w / 2;
 		bigCircle_y = svg_h / 2;
 		bigShapeSvg = "<circle cx=\"" + to_string(bigCircle_x) + "\" cy=\""
 				+ to_string(bigCircle_y) + "\" r=\"" + to_string(bigCircle_r)
 				+ "\" fill=\"blue\" />\n";
 		break;
-	case Shape::T:
+	case ShapeEnum::T:
 		bigTriangle_x1 = 0;
 		bigTriangle_y1 = svg_h;
 		bigTriangle_x2 = svg_w;
@@ -458,13 +458,13 @@ void askTriangleSize(bool isBigShape) {
 	}
 }
 void assignShapeType(bool isBigShape, string input) {
-	Shape shape;
+	ShapeEnum shape;
 	if (input == "R" || input == "r") {
-		shape = Shape::R;
+		shape = ShapeEnum::R;
 	} else if (input == "C" || input == "c") {
-		shape = Shape::C;
+		shape = ShapeEnum::C;
 	} else if (input == "T" || input == "t") {
-		shape = Shape::T;
+		shape = ShapeEnum::T;
 	} else {
 		cout << "Incorrect input! Try again..." << endl;
 		isBigShape ? askBigShape() : askSmallShapes();
@@ -487,7 +487,7 @@ void askSmallShapes() {
 	assignShapeType(false, smallShape);
 
 	switch (smallShapesType) {
-	case Shape::R:
+	case ShapeEnum::R:
 		if (calculateRectangleArea(false) > bigShapeArea) {
 			cout << "This area must be smaller than first one!" << endl;
 			cout << "calculateRectangleArea(false): "
@@ -499,7 +499,7 @@ void askSmallShapes() {
 			askSmallShapes();
 		}
 		break;
-	case Shape::C:
+	case ShapeEnum::C:
 		askCircleSize(false);
 		if (calculateCircleArea(false) > bigShapeArea) {
 			cout << "This area must be smaller than first one!" << endl;
@@ -508,7 +508,7 @@ void askSmallShapes() {
 			askSmallShapes();
 		}
 		break;
-	case Shape::T:
+	case ShapeEnum::T:
 
 
 		break;
@@ -525,14 +525,14 @@ void askBigShape() {
 	double area = 0.0;
 
 	switch (bigShapeType) {
-	case Shape::R:
+	case ShapeEnum::R:
 		area = calculateRectangleArea(true);
 		break;
-	case Shape::C:
+	case ShapeEnum::C:
 		askCircleSize(true);
 		area = calculateCircleArea(true);
 		break;
-	case Shape::T:
+	case ShapeEnum::T:
 		Triangle big();
 	//	askSmallShapes();
 		//
@@ -548,14 +548,51 @@ int main() {
 
 	//Polygon a = Rectangle (10,10);
 
-	Triangle tbig(300);
-	Triangle tsmall(100);
-	cout<< tsmall.edge;
+	Triangle tbig(800);
+	int testArr[2];
+	int* arrPtr = testArr;
+	//cout<<arrPtr;
+	testArr[0]=99;
+	testArr[1]=101;
+	tbig.setX1Y1Position(testArr);
 
-	ComposedShape a(tbig, tsmall);
+	ComposedShape *shape;
 
-	a.draw();
+	//cout<<tbig.getX1Y1Position()[0]<<endl;
+	//cout<<tbig.getX1Y1Position()[1]<<endl;
+	Triangle tsmall(50);
+	//cout<< tsmall.edge;
 
+	/*cout<<"why\n";
+	shape = new ComposedShape (tbig, tsmall);
+	cout<<"vaaaay\n";
+
+	shape->draw();*/
+
+	Rectangle aaa(1000,1000);
+	Rectangle bbb(100,30);
+
+	shape = new ComposedShape(tbig,tsmall);
+
+	shape->drawTT();
+
+	/*int bigx1y1[2],bigx2y2[2],bigx3y3[2], bigx4y4[2];
+	bigx1y1[0] = 0;
+	bigx1y1[1] = 0;
+
+	bigx2y2[0] = aaa.getWidth();
+	bigx2y2[1] = 0;
+
+	bigx3y3[0] = aaa.getWidth();
+	bigx3y3[1] = aaa.getHeight();
+
+	bigx4y4[0] = 0;
+	bigx4y4[1] = aaa.getHeight();
+
+	aaa.setColor("blue");
+	aaa.setPositions(bigx1y1,bigx2y2,bigx3y3,bigx4y4);*/
+
+	//cout<<aaa.draw();
 
 
 	//askBigShape();

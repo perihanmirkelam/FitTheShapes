@@ -1,6 +1,6 @@
 PROJECT_ROOT = $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
-OBJS = FitTheShapes.o Rectangle.o Triangle.o Circle.o ComposedShape.o Polygon.o
+OBJS = FitTheShapes.o Rectangle.o Triangle.o Circle.o ComposedShape.o Polygon.o Shape.o
 CXXFLAGS += -std=c++11
 
 ifeq ($(BUILD_MODE),debug)
@@ -25,7 +25,8 @@ ComposedShape:	$(OBJS)
 	$(CXX) -o $@ $^
 Polygon:	$(OBJS) 
 	$(CXX) -o $@ $^
-
+Shape:	$(OBJS) 
+	$(CXX) -o $@ $^
 %.o:	$(PROJECT_ROOT)%.cpp
 	$(CXX) -c $(CFLAGS) $(CXXFLAGS) $(CPPFLAGS) -o $@ $<
 
